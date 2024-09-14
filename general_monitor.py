@@ -34,7 +34,7 @@ class MonitoredScript:
 class GeneralMonitor:
     def __init__(self, master, scripts):
         self.master = master
-        self.master.title("General Monitor")
+        self.master.title("Uni Mainz SHiPCalo TB General Monitor")
         self.scripts = {script: MonitoredScript(script) for script in scripts}
         self.frames = {}
         
@@ -42,7 +42,7 @@ class GeneralMonitor:
             frame = ttk.Frame(master, padding="10 10 10 10")
             frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
             
-            label = ttk.Label(frame, text=script, font=("Arial", 14, "bold"))
+            label = ttk.Label(frame, text=script, font=("Arial", 20, "bold"))
             label.pack(pady=5)
             
             status_label = ttk.Label(frame, text="Status: Stopped", font=("Arial", 12))
@@ -90,9 +90,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     root = tk.Tk()
-    
+    root.geometry("600x400")
     style = ttk.Style()
-    style.configure("Running.TFrame", background="blue")
+    style.configure("Running.TFrame", background="green")
     style.configure("Stopped.TFrame", background="red")
     
     app = GeneralMonitor(root, sys.argv[1:])
